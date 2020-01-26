@@ -1,3 +1,22 @@
+import os
+import sys
+import pygame
+
+
+class Ground(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('ground1.png')
+        self.rect = self.image.get_rect()
+
+
+ground = Ground()
+ground.rect.x = 180
+ground.rect.y = 200
+ground_list = pygame.sprite.Group()
+ground_list.add(ground)
+
+
 def exitfun():
     import pygame
 
@@ -60,11 +79,11 @@ def exitfun():
             background_two_x = background_one_x + background_one.get_width() + 1
 
         # Adding the exit screen logo, score, and text.
-
-        screen.blit(death, [0, 90])
+        ground_list.draw(screen)
+        screen.blit(death, [0, 50])
 
         # Game display
-
+        ground_list.draw(screen)
         pygame.display.update()
         clock.tick(60)
 

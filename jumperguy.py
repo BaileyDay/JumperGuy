@@ -55,7 +55,7 @@ player.rect.y = 160
 player_list = pygame.sprite.Group()
 player_list.add(player)
 # animation cycles
-ani = 7
+ani = 6
 
 # Main game function
 
